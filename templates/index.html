@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather App</title>
+    <style>
+        /* Incrustando XP.css */
+        @import url('https://unpkg.com/xp.css');
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #008080;
+            flex-direction: column;
+        }
+
+        .window {
+            width: 90%;
+            max-width: 1200px;
+            margin-bottom: 20px;
+        }
+
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .card {
+            background: white;
+            border: 2px solid #000;
+            width: 200px;
+            padding: 10px;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .title-bar {
+            justify-content: center;
+        }
+
+        .title-bar-text {
+            margin: auto;
+        }
+
+        button {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="window">
+        <div class="title-bar">
+            <div class="title-bar-text">Weather App</div>
+        </div>
+        <div class="window-body">
+            <button id="fetchWeather">Fetch Weather Data</button>
+        </div>
+    </div>
+    <div id="weatherResult" class="grid"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const button = document.getElementById('fetchWeather');
+            button.addEventListener('click', function() {
+                fetch('/weather')
+                .then(response => response.json())
+                .then(data => {
+                    let resultDiv = document.getElementById('weatherResult');
+                    resultDiv.innerHTML = '';
+                    for (const city in data) {
+                        const weather = data[city];
+                        const card = document.createElement('div');
+                        card.className = 'card';
+                        card.innerHTML = `
+                            <h3>${city}</h3>
+                            <p>Temperature: ${weather.temperature}°C</p>
+                            <p>Windspeed: ${weather.windspeed} km/h</p>
+                        `;
+                        resultDiv.appendChild(card);
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            });
+        });
+    </script>
+</body>
+</html>
