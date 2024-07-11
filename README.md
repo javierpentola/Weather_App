@@ -10,7 +10,7 @@
 
 **Technologies Used:**
 - **HTML:** For creating the structure and content of the web pages.
-- **CSS:** For styling the web pages to make them visually appealing. Specifically, we used the XP.css library to give the application a retro Windows XP look.
+- **CSS:** For styling the web pages to make them visually appealing.
 - **JavaScript:** For adding interactivity to the frontend.
 - **Python:** The main programming language used for backend development.
 - **Flask:** A lightweight web framework for Python that we used to create the web application, define routes, handle requests, and connect to the database.
