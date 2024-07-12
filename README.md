@@ -94,5 +94,3 @@ To use the project after downloading the code, follow these steps:
 
 8. **Viewing the Database:**
    - The database file (`weather.db`) is located in the project directory. You can use tools like DB Browser for SQLite or the SQLite command line to view and manage the database contents.
-
-By following these steps, you can set up and run the Weather Application on your local machine. The application will display weather information for 20 capitals across different continents.
