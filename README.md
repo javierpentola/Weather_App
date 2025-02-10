@@ -1,7 +1,5 @@
 # Weather App
 
-### **Project Documentation: Weather Application**
-
 ---
 
 #### **Project Overview**
